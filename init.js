@@ -15,6 +15,7 @@ function checkBeta() {
 
 function init() {
     checkMobile();
+    checkBeta();
 }
 
 init();
