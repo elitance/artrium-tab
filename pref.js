@@ -15,11 +15,14 @@ function savePref() {
 }
 
 function clearPref() {
-    localStorage.removeItem("theme");
-    localStorage.removeItem("textViewable");
-    localStorage.removeItem("beta");
-    localStorage.removeItem("plcViewable");
-    location.replace("https://ldhan0715.github.io/artrium");
+    const result = confirm("Would you really DELETE ALL USER PREFERENCES?\nThis act deletes all preferences, excluding Bookmarks.");
+    if (result === true) {
+        localStorage.removeItem("theme");
+        localStorage.removeItem("textViewable");
+        localStorage.removeItem("beta");
+        localStorage.removeItem("plcViewable");
+        location.replace("https://ldhan0715.github.io/artrium");
+    }
 }
 
 function handleSwtClick(event) {
