@@ -6,12 +6,13 @@
 }
 
 #search button {
-    background: rgba(52,152,219,.7);
+    background: rgba(246,249,252,.3);
+    mix-blend-mode: hard-light;
     backdrop-filter: blur(5px);
 }
 
-#search button:hover {
-    background: rgba(41,128,185,.7);
+#search button img:hover {
+    filter: opacity(.7);
 }
 
 #bkList button {

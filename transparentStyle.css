@@ -7,11 +7,15 @@
 }
 
 #search button {
-    background: rgba(52,152,219,.7);
+    background: rgba(246,249,252,.9);
 }
 
-#search button:hover {
-    background: rgba(41,128,185,.9);
+#search button img {
+    filter: invert(.2);
+}
+
+#search button img:hover {
+    filter: invert(.3);
 }
 
 #bkList button {
