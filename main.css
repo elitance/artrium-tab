@@ -230,3 +230,9 @@ body {
 .sp::placeholder {
     color: #353b48;
 }
+
+@media (max-width: 425px) {
+    #background {
+        display: none;
+    }
+}
