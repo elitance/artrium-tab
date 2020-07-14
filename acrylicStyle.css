@@ -33,6 +33,10 @@
     backdrop-filter: blur(5px);
 }
 
+#crtBk input {
+    background: rgba(241, 242, 246, .3);
+}
+
 .bookmark {
     backdrop-filter: blur(5px);
     background: rgba(246,249,252,.3);

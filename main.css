@@ -125,7 +125,6 @@ body {
 
 #crtBk input {
     display: inline-block;
-    background: none;
     border: 1.5px solid #b2bec3;
     border-radius: 10px;
     width: 50%;
@@ -138,6 +137,7 @@ body {
 
 #crtBk input:focus {
     box-shadow: 0px 0px 5px #0366d6;
+    border: 1.5px solid #0366d6;
 }
 
 #crtBk input[type=text] {
