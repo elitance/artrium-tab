@@ -76,9 +76,9 @@ function handleSwtClick(event) {
 
 function loadPref() {
     const theme = localStorage.getItem("theme");
-    const textViewable = JSON.parse(localStorage.getItem("textViewable"));
-    const betaFeature = JSON.parse(localStorage.getItem("beta"));
-    const plcViewable = JSON.parse(localStorage.getItem("plcViewable"));
+    const JSON_textViewable = JSON.parse(localStorage.getItem("textViewable"));
+    const JSON_betaFeature = JSON.parse(localStorage.getItem("beta"));
+    const JSON_plcViewable = JSON.parse(localStorage.getItem("plcViewable"));
     if (theme !== null) {
         themeRange.value = theme;
         if (theme === "1") {
@@ -93,22 +93,26 @@ function loadPref() {
             themeText.innerText = "Theme: Glass";
         }
     }
-    if (textViewable !== null || betaFeature !== null || plcViewable !== null) {
-        if (textViewable === false) {
+    if (JSON_textViewable !== null || JSON_betaFeature !== null || JSON_plcViewable !== null) {
+        textViewable = JSON_textViewable;
+        betaFeature = JSON_betaFeature;
+        plcViewable = JSON_plcViewable;
+
+        if (JSON_textViewable === false) {
             const swt = document.querySelector("#txtTrb.swtBg");
             const swtTgg = swt.querySelector(".swtTg");
             swt.classList.toggle("swtBgOn");
             swtTgg.classList.toggle("swtTgOn");
         }
         
-        if (betaFeature === true) {
+        if (JSON_betaFeature === true) {
             const swt = document.querySelector("#beta.swtBg");
             const swtTgg = swt.querySelector(".swtTg");
             swt.classList.toggle("swtBgOn");
             swtTgg.classList.toggle("swtTgOn");
         }
 
-        if (plcViewable === false) {
+        if (JSON_plcViewable === false) {
             const swt = document.querySelector("#plcTrb.swtBg");
             const swtTgg = swt.querySelector(".swtTg");
             swt.classList.toggle("swtBgOn");
