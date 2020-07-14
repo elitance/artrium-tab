@@ -14,8 +14,8 @@ function checkBeta() {
 }
 
 function init() {
-    // checkMobile();
-    // checkBeta();
+    checkMobile();
+    checkBeta();
 }
 
 init();

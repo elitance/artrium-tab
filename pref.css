@@ -157,8 +157,7 @@ a:hover {
     color: #f6f9fc;
     border: 1.5px solid #cb2431;
 }
-
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
     h1 {
         width: 500px;
     }
@@ -174,4 +173,4 @@ a:hover {
     #home {
         position: absolute;
     }
-}
+} */
