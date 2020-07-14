@@ -6,6 +6,7 @@ const cnlCrtBk = document.querySelector("#cnlCrtBk");
 let bookmarks;
 
 let bkArr = [];
+let bkMax = false;
 
 function saveBookmark() {
     localStorage.setItem("bookmark", JSON.stringify(bkArr));
@@ -15,7 +16,9 @@ function addBookmark(url,name) {
     const link = document.createElement("a");
     const id = bkArr.length + 1;
     if (id > 10) {
-        alert("Maxinum Bookmark Count is 9.");
+        bkMax = true;
+        alert("Maxinum Bookmark Count is 10.");
+        hideBkTab();
         return;
     }
     link.href = url;
@@ -62,7 +65,9 @@ function handleBookmarkCreate() {
     const url = crtBkTab.querySelector("#url");
     const name = crtBkTab.querySelector("#name");
     addBookmark(url.value,name.value);
-    alert(`Bookmark successfully created!`);
+    if (bkMax === false) {
+        alert(`Bookmark successfully created!`);
+    }
     url.value = "";
     name.value = "";
 }
