@@ -230,7 +230,7 @@ body {
 .sp::placeholder {
     color: #353b48;
 }
-/* @media (max-width: 600px) {
+@media (max-width: 425px) {
     #background {
         min-width: 100%;
         max-width: 150%;
@@ -272,4 +272,4 @@ body {
     #crtBk input {
         width: 70%;
     }
-} */
+}

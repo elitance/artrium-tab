@@ -6,7 +6,8 @@ const cnlCrtBk = document.querySelector("#cnlCrtBk");
 let bookmarks;
 
 let bkArr = [];
-let bkMax = false;
+let crtBkCnl = false;
+let crtBkMnl = false;
 
 function saveBookmark() {
     localStorage.setItem("bookmark", JSON.stringify(bkArr));
@@ -16,10 +17,18 @@ function addBookmark(url,name) {
     const link = document.createElement("a");
     const id = bkArr.length + 1;
     if (id > 10) {
-        bkMax = true;
+        crtBkCnl = true;
         alert("Maxinum Bookmark Count is 10.");
         hideBkTab();
         return;
+    }
+    if (name.length >= 17 && crtBkMnl === true) {
+        const answer = confirm("If the name of a bookmark is longer than 17 characters, you might not be able to see the name of the bookmark well.\nWould you continue?");
+        if (answer === false) {
+            crtBkCnl = true;
+            hideBkTab();
+            return;
+        }
     }
     link.href = url;
     link.innerText = name;
@@ -60,12 +69,14 @@ function hideBkTab() {
     name.value = "";
 }
 
-function handleBookmarkCreate() {
+function prepBkCrt() {
     event.preventDefault();
+    crtBkMnl = true;
+    crtBkCnl = false;
     const url = crtBkTab.querySelector("#url");
     const name = crtBkTab.querySelector("#name");
     addBookmark(url.value,name.value);
-    if (bkMax === false) {
+    if (crtBkCnl === false) {
         alert(`Bookmark successfully created!`);
     }
     url.value = "";
@@ -85,7 +96,7 @@ function init() {
     loadBookmark();
     crtBkBtn.addEventListener("click",showBkTab);
     cnlCrtBk.addEventListener("click",hideBkTab);
-    crtBkTab.addEventListener("submit", handleBookmarkCreate);
+    crtBkTab.addEventListener("submit", prepBkCrt);
     setInterval(function() {
         const textViewable = JSON.parse(localStorage.getItem("textViewable"));
         bookmarks = document.querySelectorAll(".bookmark");
