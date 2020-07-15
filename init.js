@@ -23,7 +23,7 @@ function checkBeta() {
 }
 
 function init() {
-    // checkMobile();
+    checkMobile();
     // checkBeta();
 }
 
