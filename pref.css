@@ -157,20 +157,3 @@ a:hover {
     color: #f6f9fc;
     border: 1.5px solid #cb2431;
 }
-@media (max-width: 425px) {
-    h1 {
-        width: 500px;
-    }
-
-    quote {
-        display: none;
-    }
-
-    form>div {
-        margin-top: 20px;
-    }
-
-    #home {
-        position: absolute;
-    }
-}
