@@ -107,7 +107,7 @@ function init() {
         } else {
             crtBkBtn.style.display = "block";
         }
-    }, 1000);
+    }, 100);
 }
     
 init();
