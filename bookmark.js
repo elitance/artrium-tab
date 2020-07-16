@@ -16,12 +16,6 @@ function saveBookmark() {
 function addBookmark(url,name) {
     const link = document.createElement("a");
     const id = bkArr.length + 1;
-    if (id > 10) {
-        crtBkCnl = true;
-        alert("Maxinum Bookmark Count is 10.");
-        hideBkTab();
-        return;
-    }
     if (name.length >= 17 && crtBkMnl === true) {
         const answer = confirm("If the name of a bookmark is longer than 17 characters, you might not be able to see the name of the bookmark well.\nWould you continue?");
         if (answer === false) {
@@ -107,6 +101,11 @@ function init() {
             bookmarks.forEach((bookmark) => {
                 bookmark.style.color = "#353b48";
             });
+        }
+        if (bkArr.length >= 10) {
+            crtBkBtn.style.display = "none";
+        } else {
+            crtBkBtn.style.display = "block";
         }
     }, 1000);
 }
