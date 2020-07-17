@@ -17,7 +17,7 @@ And this, is New version of Artrium. Once Artrium was seperated into two: Artriu
 - <s>Custom Background Image</s> (Available on Version N2.5)
 
 ## Image Copyrights
-All of the images are from Unsplash API.
+All of the images are from [Unsplash API](https://api.unsplash.com).
 
 ## Availability
 Mobile is not well supported in Artrium, yet. It will be indicated: 'Sorry, Artrium is not for Mobile'.
