@@ -7,16 +7,8 @@ function checkMobile() {
     }
 }
 
-function checkBeta() {
-    const betaFeature = JSON.parse(localStorage.getItem("beta"));
-    if (betaFeature === false) {
-        location.replace("https://ldhan0715.github.io/artrium");
-    }
-}
-
 function init() {
     checkMobile();
-    checkBeta();
 }
 
 init();

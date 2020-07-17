@@ -5,23 +5,20 @@ const swtBg = document.querySelectorAll(".swtBg");
 const prefDel = document.querySelector("#delPref");
 let textViewable = true;
 let plcViewable = true;
-let betaFeature = false;
 
 function savePref() {
     localStorage.setItem("theme", themeRange.value);
     localStorage.setItem("textViewable", JSON.stringify(textViewable));
-    localStorage.setItem("beta", JSON.stringify(betaFeature));
     localStorage.setItem("plcViewable", JSON.stringify(plcViewable));
 }
 
 function clearPref() {
-    const result = confirm("Would you really DELETE ALL USER PREFERENCES?\nThis act deletes all preferences, excluding Bookmarks.");
+    const result = confirm("Would you really DELETE ALL USER PREFERENCES?\nThis act deletes all preferences.");
     if (result === true) {
         localStorage.removeItem("theme");
         localStorage.removeItem("textViewable");
-        localStorage.removeItem("beta");
         localStorage.removeItem("plcViewable");
-        location.replace("https://ldhan0715.github.io/artrium");
+        localStorage.removeItem("bookmark");
     }
 }
 
@@ -36,12 +33,6 @@ function handleSwtClick(event) {
                 textViewable = true;
             } else {
                 textViewable = false;
-            }
-        } else if (swt.id === "beta") {
-            if (!swt.className.includes(" ")) {
-                betaFeature = false;
-            } else {
-                betaFeature = true;
             }
         } else if (swt.id === "plcTrb") {
             if (!swt.className.includes(" ")) {
@@ -60,12 +51,6 @@ function handleSwtClick(event) {
             } else {
                 textViewable = false;
             }
-        } else if (swtBg.id === "beta") {
-            if (!swt.className.includes(" ")) {
-                betaFeature = false;
-            } else {
-                betaFeature = true;
-            }
         } else if (swtBg.id === "plcTrb") {
             if (!swt.className.includes(" ")) {
                 plcViewable = true;
@@ -80,7 +65,6 @@ function handleSwtClick(event) {
 function loadPref() {
     const theme = localStorage.getItem("theme");
     const JSON_textViewable = JSON.parse(localStorage.getItem("textViewable"));
-    const JSON_betaFeature = JSON.parse(localStorage.getItem("beta"));
     const JSON_plcViewable = JSON.parse(localStorage.getItem("plcViewable"));
     if (theme !== null) {
         themeRange.value = theme;
@@ -96,20 +80,12 @@ function loadPref() {
             themeText.innerText = "Theme: Glass";
         }
     }
-    if (JSON_textViewable !== null || JSON_betaFeature !== null || JSON_plcViewable !== null) {
+    if (JSON_textViewable !== null || JSON_plcViewable !== null) {
         textViewable = JSON_textViewable;
-        betaFeature = JSON_betaFeature;
         plcViewable = JSON_plcViewable;
 
         if (JSON_textViewable === false) {
             const swt = document.querySelector("#txtTrb.swtBg");
-            const swtTgg = swt.querySelector(".swtTg");
-            swt.classList.toggle("swtBgOn");
-            swtTgg.classList.toggle("swtTgOn");
-        }
-        
-        if (JSON_betaFeature === true) {
-            const swt = document.querySelector("#beta.swtBg");
             const swtTgg = swt.querySelector(".swtTg");
             swt.classList.toggle("swtBgOn");
             swtTgg.classList.toggle("swtTgOn");
