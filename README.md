@@ -13,7 +13,7 @@ And this, is Beta versions of Artrium. You can register beta program by just ena
 - Cleaner Source Code
 - Can Delete User Data
 - Bookmark Limits
-- Media Query for Mobile (experiemental)
+- <s>Media Query for Mobile</s> (abandoned)
 
 ## Image Copyrights
 All of the images are from Unsplash API.
