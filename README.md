@@ -6,7 +6,7 @@ Just enjoy without any logins, cookies.
 You can use this site better with this [extension](https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna?hl=en).
 This extension lets you to redirect new tabs, which means it can make you able to quickly access to google, and your bookmarks in Artrium.
 
-And this, is New version of Artrium. Once Artrium was seperated into two: Artrium and Artrium Beta, but I decided to abandon old Artrium and raise Artrium Beta. New version includes design improvements, improvement on code and etc. Unfortunatly, as the site domain and repo moves all the preferences and bookmarks' data will be lost.
+And this, is New version of Artrium. Once Artrium was seperated into two: Artrium and Artrium Beta, but I decided to abandon old Artrium and raise Artrium Beta (which is Artrium New currently). New version includes design improvements, improvement on code and etc. Unfortunatly, as the site domain and repo moves all the preferences and bookmarks' data will be lost.
 
 ## New Features - Version N2
 - Design Improvements
@@ -29,9 +29,7 @@ Since acrylic theme contains very much acrylic contents (it blurs the background
 
 <div align=center>
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fzzsza)](https://hits.seeyoufarm.com)
-
-[![Facebook Badge](https://img.shields.io/badge/Facebook-1877f2?style=flat&logo=facebook&logoColor=white&link=https://www.facebook.com/lucasdhan0715)](https://www.facebook.com/lucasdhan0715)
+[![Facebook Badge](https://img.shields.io/badge/Facebook-1877f2?style=flat&logo=facebook&logoColor=white&link=https://www.facebook.com/lucasdhan0715)](https://www.facebook.com/ldhan0715)
 [![Instagram Badge](https://img.shields.io/badge/Instagram-e4405f?style=flat&logo=instagram&logoColor=white&link=https://www.instagram.com/ldhan.dev_0715)](https://www.instagram.com/ldhan.dev_0715)
 [![GitHub Badge](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white&link=https://github.com/ldhan0715)](https://github.com/ldhan0715)
 [![Gmail Badge](https://img.shields.io/badge/Gmail-d14836?style=flat&logo=gmail&logoColor=white&link=mailto:ldhan0715@gmail.com)](mailto:ldhan0715@gmail.com)
