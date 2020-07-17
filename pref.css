@@ -46,14 +46,14 @@ h3 {
     font-size: 16px;
 }
 
-form {
+section {
     display: flex;
     justify-content: center;
     flex-direction: column;
     margin-top: 50px;
 }
 
-form>div {
+section>div {
     margin-top: 40px;
     border: 1.5px solid gray;
     width: 400px;
@@ -156,4 +156,64 @@ a:hover {
     background: #cb2431;
     color: #f6f9fc;
     border: 1.5px solid #cb2431;
+}
+
+#option {
+    display: flex;
+    justify-content: center;
+}
+
+#option button {
+    border: 1px solid #b2bec3;
+    background: #f6f9fc;
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+#option button:hover {
+    background: #b2bec3;
+    color: #f6f9fc;
+}
+
+#option button:nth-child(1) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+}
+
+#option button:nth-child(2) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#color {
+    border: 1.5px solid #b2bec3;
+    background: #f5f6fa;
+    border-radius: 10px;
+    width: 300px;
+    height: 28px;
+    font-size: 15px;
+    text-align: center;
+    transition: all .3s;
+    margin-top: 20px;
+}
+
+#color:focus {
+    box-shadow: 0px 0px 5px #0366d6;
+    border: 1.5px solid #0366d6;
+}
+
+#fileLabel {
+    display: none;
+    margin-top: 20px;
+    cursor: pointer;
+    filter: opacity(.3);
+    pointer-events: none;
+}
+
+#fileLabel:hover {
+    text-decoration: underline;
 }

@@ -1,6 +1,7 @@
 const body = document.querySelector("body");
 const date = new Date();
 const month = date.getMonth();
+const bgColor = JSON.parse(localStorage.getItem("bgClr"));
 let random = Math.floor(Math.random() * 7);
 
 const dateQuery = {
@@ -60,7 +61,11 @@ function setBackground(src,alt,owner,height) {
 }
 
 function init() {
-    bringPhoto();
+    if (bgColor === null) {
+        bringPhoto();
+    } else {
+        body.style.background = bgColor;
+    }
 }
 
 init();

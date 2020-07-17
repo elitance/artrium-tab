@@ -12,20 +12,36 @@
             <a href="index.html" id="home">🡰 Home</a>
             <h1>Preferences</h1>
             <quote style="font-size: 14px">
-                <p style="font-size: 16px">Version New 2</p>You may install the recommended font for Artrium: <a href="https://rsms.me/inter/">Inter</a>, for the better user experience.<br>This is not necessary if you are using Apple's computer.
+                <p style="font-size: 16px">Version N2</p>You may install the recommended font for Artrium: <a href="https://rsms.me/inter/">Inter</a>, for the better user experience.<br>This is not necessary if you are using Apple's computer.
             </quote>
-            <form>
+            <section>
                 <div>
                     <h3 id="themeI">Theme: Solid</h3>
                     <input type="range" step="1" min="1" max="3" id="range">
                 </div>
                 <div>
+                    <h3>Customize Background</h3>
+                    <div id="option">
+                        <button type="button">Set Color</button>
+                        <button type="button">Set Image</button>
+                    </div>
+                    <form id="colorForm">
+                        <input type="text" placeholder="Color Unit: Hex" id="color" pattern="#[a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9]">
+                        <div style="font-size: 13px; margin-top: 10px;">Submit nothing to clear this preference.</div>
+                    </form>
+                    <label for="file" id="fileLabel">
+                        <!-- Upload Image -->
+                        Available on Version N2.5
+                    </label>
+                    <input type="file" id="file" style="display: none;">
+                </div>
+                <div>
                     <h3>Delete All User Preferences</h3>
                     <button id="delPref">Delete</button>
                 </div>
-            </form>
+            </section>
             <h2>Troubleshooting Options</h2>
-            <form>
+            <section>
                 <div>
                     <h3>Searchbox or Bookmarks' Text Not Visible</h3>
                     <div class="swtBg" id="txtTrb">
@@ -38,7 +54,7 @@
                         <div class="swtTg"></div>
                     </div>
                 </div>
-            </form>
+            </section>
         </main>
         <a href="https://github.com/ldhan0715/artrium">
             <img src="github.png" alt="GitHub" id="github">
