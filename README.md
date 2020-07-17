@@ -13,7 +13,8 @@ And this, is New version of Artrium. Once Artrium was seperated into two: Artriu
 - Cleaner Source Code
 - Can Delete User Data
 - Bookmark Limits
-- <s>Media Query for Mobile</s> (abandoned)
+- Custom Background Color
+- <s>Custom Background Image</s> (Available on Version N2.5)
 
 ## Image Copyrights
 All of the images are from Unsplash API.
