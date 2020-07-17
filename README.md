@@ -8,7 +8,7 @@ This extension lets you to redirect new tabs, which means it can make you able t
 
 And this, is Beta versions of Artrium. You can register beta program by just enabling beta features on Artrium's Preferences. Beta version includes design improvements, improvement on code and etc. Most of the features in beta version will be supported on [Artrium](https://github.com/ldhan0715/artrium) later on, but some of the features won't be supported. Just remind that beta versions didn't had a test before release, so that any errors can be occured. And one more thing, bookmarks will be synced with original Artrium and beta Artrium.
 
-## New Features - Version Beta 0.2
+## New Features - Version N2
 - Design Improvements
 - Cleaner Source Code
 - Can Delete User Data
