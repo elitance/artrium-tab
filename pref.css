@@ -65,7 +65,7 @@ section>div {
     align-items: center;
 }
 
-#range {
+input[type=range] {
     appearance: none;
     height: 5px;
     border-radius: 3.25px;
@@ -75,7 +75,7 @@ section>div {
     width: 150px;
 }
 
-#range:hover {
+input[type=range]:hover {
     filter: opacity(1);
 }
 
@@ -189,7 +189,7 @@ a:hover {
     border-bottom-left-radius: 0;
 }
 
-#bgClrForm input, #bgImgForm input {
+#colorForm input, #imageForm input {
     border: 1.5px solid #b2bec3;
     background: #f5f6fa;
     border-radius: 10px;
@@ -201,11 +201,11 @@ a:hover {
     margin-top: 20px;
 }
 
-#bgClrForm input:focus, #bgImgForm input:focus {
+#colorForm input:focus, #imageForm input:focus {
     box-shadow: 0px 0px 5px #0366d6;
     border: 1.5px solid #0366d6;
 }
 
-#bgImgForm {
+#imageForm {
     display: none;
 }

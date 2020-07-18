@@ -1,169 +1,142 @@
-const cssLink = document.querySelector("link");
-const themeRange = document.querySelector("#range");
-const themeText = document.querySelector("#themeI");
-const swtBg = document.querySelectorAll(".swtBg");
-const prefDel = document.querySelector("#delPref");
-const cstmBgClr = document.querySelectorAll("#option button")[0];
-const cstmBgImg = document.querySelectorAll("#option button")[1];
-const clrForm = document.querySelector("#bgClrForm");
-const fleForm = document.querySelector("#bgImgForm");
-let textViewable = true;
-let plcViewable = true;
-let bgCstm = null;
+const themeRange = document.querySelector("input[type=range]");
+const themeIndicator = document.querySelector("#themeI");
+const colorForm = document.querySelector("#colorForm");
+const imageForm = document.querySelector("#imageForm");
+
+const PREF_LS = "pref";
+let pref = {
+    theme: themeRange.value,
+    txtVisible: true,
+    plcVisible: true,
+    bgCstm: null
+}
 
 function savePref() {
-    localStorage.setItem("theme", themeRange.value);
-    localStorage.setItem("textViewable", JSON.stringify(textViewable));
-    localStorage.setItem("plcViewable", JSON.stringify(plcViewable));
-    localStorage.setItem("bgCstm", JSON.stringify(bgCstm));
+    localStorage.setItem(PREF_LS, JSON.stringify(pref));
 }
 
 function clearPref() {
-    const result = confirm("Would you really DELETE ALL USER PREFERENCES?\nThis act deletes all preferences.");
-    if (result === true) {
-        localStorage.removeItem("theme");
-        localStorage.removeItem("textViewable");
-        localStorage.removeItem("plcViewable");
-        localStorage.removeItem("bookmark");
-        localStorage.removeItem("bgCstm");
+    const answer = confirm("Would you really DELETE ALL USER PREFERENCES?\nThis act deletes all preferences.");
+    if (answer === true) {
+        localStorage.removeItem(PREF_LS);
     }
 }
 
-function saveBgCstm(event) {
+function handleBgCstm(event) {
     event.preventDefault();
     const input = event.target.querySelector("input");
-    bgCstm = input.value;
-    if (bgCstm === "") {
-        bgCstm = null
-        alert("Cleared Custom Background Settings.");
+    pref.bgCstm = input.value;
+    if (pref.bgCstm === "") {
+        pref.bgCstm = null;
+        alert("Cleared custom background settings.");
     } else {
-        alert("Saved Custom Background Settings.");
+        alert("Saved custom background settings.");
     }
     input.value = "";
     savePref();
 }
 
-function handleSwtClick(event) {
+function toggle(element1, element2) {
+    element1.classList.toggle("swtBgOn");
+    element2.classList.toggle("swtTgOn");
+}
+
+function toggleSwitch(event) {
     const swt = event.target;
+    function setTxt(element) {
+        if (element.id === "txtTrb") {
+            if (!element.className.includes(" ")) {
+                pref.txtVisible = true;
+            } else {
+                pref.txtVisible = false;
+            }
+        }
+    }
+    function setPlc(element) {
+        if (element.id === "plcTrb") {
+            if (!element.className.includes(" ")) {
+                pref.plcVisible = true;
+            } else {
+                pref.plcVisible = false;
+            }
+        }
+    }
     if (swt.className === "swtBg" || swt.className === "swtBg swtBgOn") {
         const swtTgg = swt.querySelector(".swtTg");
-        swt.classList.toggle("swtBgOn");
-        swtTgg.classList.toggle("swtTgOn");
-        if (swt.id === "txtTrb") {
-            if (!swt.className.includes(" ")) {
-                textViewable = true;
-            } else {
-                textViewable = false;
-            }
-        } else if (swt.id === "plcTrb") {
-            if (!swt.className.includes(" ")) {
-                plcViewable = true;
-            } else {
-                plcViewable = false;
-            }
-        }
+        toggle(swt,swtTgg);
+        setTxt(swt);
+        setPlc(swt,"plcTrb",pref.plcVisible);
     } else {
         const swtBg = swt.parentElement;
-        swtBg.classList.toggle("swtBgOn");
-        swt.classList.toggle("swtTgOn");
-        if (swtBg.id === "txtTrb") {
-            if (!swt.className.includes(" ")) {
-                textViewable = true;
-            } else {
-                textViewable = false;
-            }
-        } else if (swtBg.id === "plcTrb") {
-            if (!swt.className.includes(" ")) {
-                plcViewable = true;
-            } else {
-                plcViewable = false;
-            }
-        }
+        toggle(swtBg,swt);
+        setTxt(swtBg,"txtTrb",pref.txtVisible);
+        setPlc(swtBg,"plcTrb",pref.plcVisible);
     }
     savePref();
 }
 
-function shwCst(event) {
-    const opt = event.target;
-    if (opt.innerText === "Set Color") {
-        fleForm.style.display = "none";
-        clrForm.style.display = "block";
+function switchCstm(event) {
+    const option = event.target;
+    if (option.innerText = "Set Color") {
+        imageForm.style.display = "none";
+        colorForm.style.display = "block";
     } else {
-        clrForm.style.display = "none";
-        fleForm.style.display = "block";
+        colorForm.style.display = "none";
+        imageForm.style.display = "block";
+    }
+}
+
+function setThemeRange(theme) {
+    if (theme === "1") {
+        themeIndicator.innerText = "Theme: Acrylic";
+        const warn = document.createElement("div");
+        warn.innerText = "Acrylic Theme may slow down your PC.";
+        warn.style.fontSize = "13px";
+        themeIndicator.appendChild(warn);
+    } else if (theme === "2") {
+        themeIndicator.innerText = "Theme: Solid";
+        if (themeIndicator.querySelector("div")) {
+            themeIndicator.removeChild("div");
+        }
+    } else {
+        themeIndicator.innerText = "Theme: Glass";
+        if (themeIndicator.querySelector("div")) {
+            themeIndicator.removeChild("div");
+        }
     }
 }
 
 function loadPref() {
-    const theme = localStorage.getItem("theme");
-    const JSON_textViewable = JSON.parse(localStorage.getItem("textViewable"));
-    const JSON_plcViewable = JSON.parse(localStorage.getItem("plcViewable"));
-    const JSON_bgCstm = JSON.parse(localStorage.getItem("bgCstm"));
-    if (theme !== null) {
-        themeRange.value = theme;
-        if (theme === "1") {
-            themeText.innerText = "Theme: Acrylic";
-            const warn = document.createElement("div");
-            warn.innerText = "Acrylic Theme may slow down your PC.";
-            warn.style.fontSize = "13px";
-            themeText.appendChild(warn);
-        } else if (theme === "2") {
-            themeText.innerText = "Theme: Solid";
-        } else {
-            themeText.innerText = "Theme: Glass";
-        }
+    const PREF_JSON = JSON.parse(localStorage.getItem(PREF_LS));
+    if (PREF_JSON !== null) {
+        pref = PREF_JSON;
+        themeRange.value = pref.theme;
+        setThemeRange(pref.theme);
     }
-    if (JSON_textViewable !== null || JSON_plcViewable !== null || JSON_bgCstm !== null) {
-        textViewable = JSON_textViewable;
-        plcViewable = JSON_plcViewable;
-        bgCstm = JSON_bgCstm;
-
-        if (JSON_textViewable === false) {
-            const swt = document.querySelector("#txtTrb.swtBg");
-            const swtTgg = swt.querySelector(".swtTg");
-            swt.classList.toggle("swtBgOn");
-            swtTgg.classList.toggle("swtTgOn");
-        }
-
-        if (JSON_plcViewable === false) {
-            const swt = document.querySelector("#plcTrb.swtBg");
-            const swtTgg = swt.querySelector(".swtTg");
-            swt.classList.toggle("swtBgOn");
-            swtTgg.classList.toggle("swtTgOn");
-        }
+    if (!pref.txtVisible) {
+        const swt = document.querySelector("#txtTrb.swtBg");
+        const swtTg= swt.querySelector(".swtTg");
+        toggle(swt,swtTg);
+    }
+    
+    if (!pref.plcVisible) {
+        const swt = document.querySelector("#plcTrb.swtBg");
+        const swtTg = swt.querySelector(".swtTg");
+        toggle(swt,swtTg);
     }
 }
 
 function init() {
     loadPref();
-    themeRange.addEventListener("input", () => {
-        if (themeRange.value === "1") {
-            themeText.innerText = "Theme: Acrylic";
-            const warn = document.createElement("div");
-            warn.innerText = "Acrylic Theme may slow down your PC.";
-            warn.style.fontSize = "13px";
-            themeText.appendChild(warn);
-        } else if (themeRange.value === "2") {
-            themeText.innerText = "Theme: Solid";
-            if (themeText.querySelector("div")) {
-                themeText.removeChild("div");
-            }
-        } else {
-            themeText.innerText = "Theme: Glass";
-            if (themeText.querySelector("div")) {
-                themeText.removeChild("div");
-            }
-        }
-        savePref();
-    });
-    swtBg.forEach((swt) => {
-        swt.addEventListener("click", handleSwtClick);
-    });
+    const swtBg = document.querySelectorAll(".swtBg");
+    const prefDel = document.querySelector("#delPref");
+    const cstmBg = document.querySelectorAll("#option button");
+    themeRange.addEventListener("input",() => {pref.theme = themeRange.value; console.log("."); setThemeRange(themeRange.value); savePref();});
+    swtBg.forEach((swt) => {swt.addEventListener("click",toggleSwitch);});
     prefDel.addEventListener("click", clearPref);
-    cstmBgClr.addEventListener("click", shwCst);
-    cstmBgImg.addEventListener("click", shwCst);
-    clrForm.addEventListener("submit", saveBgCstm);
-    fleForm.addEventListener("submit", saveBgCstm);
+    cstmBg.forEach((option) => {option.addEventListener("click",switchCstm);});
+    colorForm.addEventListener("submit",handleBgCstm);
+    imageForm.addEventListener("submit",handleBgCstm)
 }
 
 init();
