@@ -52,7 +52,6 @@ function bringPhoto() {
         return response.json();
     }).then(function(json) {
         random = Math.floor(Math.random() * 30);
-        console.log(json);
         const imgURL = json.results[random].urls.full;
         const imgOwner = json.results[random].user.name;
         const imgDesc = `Taken by ${imgOwner}. From Unsplash.`;
