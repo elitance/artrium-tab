@@ -37,7 +37,7 @@ if (month % 2 === 0) {
 random = Math.floor(Math.random() * 10);
 
 function bringPhoto() {
-    fetch(`https://api.unsplash.com/search/photos?query=${query}&per_page=30&client_id=${accessCode}`).then(function(response) {
+    fetch(`https://api.unsplash.com/search/photos?query=${query}&per_page=100&client_id=${accessCode}`).then(function(response) {
         return response.json();
     }).then(function(json) {
         const imgURL = json.results[random].urls.full;
