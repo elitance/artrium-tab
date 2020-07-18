@@ -9,7 +9,6 @@ Date.prototype.getWeek = function() {
 const body = document.querySelector("body");
 const date = new Date();
 const week = date.getWeek();
-const bgCustom = JSON.parse(localStorage.getItem("bgCstm"));
 let random = Math.floor(Math.random() * 9);
 
 const dateQuery = {
@@ -73,12 +72,17 @@ function setBackground(src,desc) {
 }
 
 function init() {
-    if (bgCustom === null) {
-        bringPhoto();
-    } else if (bgCustom.includes("#")) {
-        body.style.background = bgCustom;
+    if (JSON.parse(localStorage.getItem("pref")) !== null) {
+        const bgCustom = JSON.parse(localStorage.getItem("pref")).bgCstm;    
+        if (bgCustom === null) {
+            bringPhoto();
+        } else if (bgCustom.includes("#")) {
+            body.style.background = bgCustom;
+        } else {
+            setBackground(bgCustom,`${bgCustom}\nCustom background set by User.`);
+        }
     } else {
-        setBackground(bgCustom,`${bgCustom}\nCustom background set by User.`);
+        bringPhoto();
     }
 }
 

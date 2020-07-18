@@ -11,9 +11,11 @@ function changeTheme(themeNo) {
 }
 
 function loadTheme() {
-    const loadedTheme = localStorage.getItem("theme");
-    if (loadedTheme !== null) {
-        changeTheme(loadedTheme);
+    if (JSON.parse(localStorage.getItem("pref")) !== null) {
+        const loadedTheme = JSON.parse(localStorage.getItem("pref")).theme;
+        if (loadedTheme !== null) {
+            changeTheme(loadedTheme);
+        }
     }
 }
 
