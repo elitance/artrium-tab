@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="pref.css">
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="icon" href="favicon.ico">
+        <title>Artrium - Preferences</title>
+    </head>
+    <body>
+        <main>
+            <a href="index.html" id="home">🡰 Home</a>
+            <h1>Preferences</h1>
+            <quote style="font-size: 14px">
+                <p style="font-size: 16px">Version N2</p>You may install the recommended font for Artrium: <a href="https://rsms.me/inter/">Inter</a>, for the better user experience.<br>This is not necessary if you are using Apple's computer.
+            </quote>
+            <section>
+                <div>
+                    <h3 id="themeI">Theme: Solid</h3>
+                    <input type="range" step="1" min="1" max="3" id="range">
+                </div>
+                <div>
+                    <h3>Customize Background</h3>
+                    <div id="option">
+                        <button type="button">Set Color</button>
+                        <button type="button">Set Image</button>
+                    </div>
+                    <form id="bgClrForm">
+                        <input type="text" placeholder="Color Unit: Hex" pattern="#[a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9]">
+                    </form>
+                    <form id="bgImgForm">
+                        <input type="url" placeholder="Input Image URL">
+                    </form>
+                    <div style="font-size: 13px; margin-top: 10px;">Submit blank to clear this setting.</div>
+                </div>
+                <div>
+                    <h3>Delete All User Preferences</h3>
+                    <button id="delPref">Delete</button>
+                </div>
+            </section>
+            <h2>Troubleshooting Options</h2>
+            <section>
+                <div>
+                    <h3>Searchbox or Bookmarks' Text Not Visible</h3>
+                    <div class="swtBg" id="txtTrb">
+                        <div class="swtTg"></div>
+                    </div>
+                </div>
+                <div>
+                    <h3>Placeholder Not Visible</h3>
+                    <div class="swtBg" id="plcTrb">
+                        <div class="swtTg"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <a href="https://github.com/ldhan0715/artrium">
+            <img src="github.png" alt="GitHub" id="github">
+        </a>
+        <script src="pref.js"></script>
+        <script src="init.js"></script>
+    </body>
+</html>

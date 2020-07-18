@@ -1,0 +1,42 @@
+#search input {
+    background: rgba(246,249,252,.75);
+}
+
+#search input:focus {
+    background: rgba(246,249,252,.9);
+}
+
+#search button {
+    background: rgba(246,249,252,.9);
+}
+
+#search button img {
+    filter: invert(.2);
+}
+
+#search button img:hover {
+    filter: invert(.3);
+}
+
+#bkList button {
+    color: black;
+    background: rgba(246,249,252,.75);
+}
+
+#crtBk {
+    background: rgba(246,249,252,.8);
+}
+
+#crtBk input {
+    background: #f1f2f6;
+    filter: opacity(.7);
+}
+
+.bookmark {
+    background: rgba(246,249,252,.75);
+    color: black !important;
+}
+
+.bookmark:hover {
+    background: rgba(246,249,252,.9);
+}

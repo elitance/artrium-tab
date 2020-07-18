@@ -1,0 +1,33 @@
+#search input {
+    background: #f6f9fc;
+}
+
+#search button {
+    background: #f6f9fc;
+}
+
+#search button img {
+    filter: invert(.2);
+}
+
+#search button img:hover {
+    filter: invert(.3);
+}
+
+#bkList button {
+    color: black;
+    background: #f6f9fc;
+}
+
+#crtBk {
+    background: rgba(246,249,252);
+}
+
+#crtBk input {
+    background: #f1f2f6;
+}
+
+.bookmark {
+    background: #f6f9fc;
+    color: black !important;
+}
