@@ -34,12 +34,14 @@ if (month % 2 === 0) {
     query = dateQuery.arts[random];
 }
 
-random = Math.floor(Math.random() * 10);
+random = Math.floor(Math.random() * 5);
 
 function bringPhoto() {
-    fetch(`https://api.unsplash.com/search/photos?query=${query}&per_page=100&client_id=${accessCode}`).then(function(response) {
+    fetch(`https://api.unsplash.com/search/photos?query=${query}&per_page=30&page=${random}&client_id=${accessCode}`).then(function(response) {
         return response.json();
     }).then(function(json) {
+        console.log(json);
+        random = Math.floor(Math.random() * 30);
         const imgURL = json.results[random].urls.full;
         const imgAlt = json.results[random].alt_description;
         const imgOwner = json.results[random].user.name;
