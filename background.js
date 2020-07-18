@@ -10,7 +10,7 @@ const body = document.querySelector("body");
 const date = new Date();
 const week = date.getWeek();
 const bgCustom = JSON.parse(localStorage.getItem("bgCstm"));
-let random = Math.floor(Math.random() * 10);
+let random = Math.floor(Math.random() * 9);
 
 const dateQuery = {
     citys: {
@@ -22,8 +22,7 @@ const dateQuery = {
         5: "canada",
         6: "italy",
         7: "ireland",
-        8: "iceland",
-        9: "russia"
+        8: "russia"
     },
     arts: {
         0: "interior",
@@ -34,8 +33,7 @@ const dateQuery = {
         5: "sustainability",
         6: "textures",
         7: "technology",
-        8: "history",
-        9: "imac"
+        8: "imac"
     }
 }
 
