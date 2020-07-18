@@ -1,34 +1,48 @@
+Date.prototype.getWeek = function() {
+    var date = new Date(this.getTime());
+    date.setHours(0, 0, 0, 0);
+    date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7);
+    var week1 = new Date(date.getFullYear(), 0, 4);
+    return 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7);
+  }
+
 const body = document.querySelector("body");
 const date = new Date();
-const month = date.getMonth();
+const week = date.getWeek();
 const bgCustom = JSON.parse(localStorage.getItem("bgCstm"));
-let random = Math.floor(Math.random() * 7);
+let random = Math.floor(Math.random() * 10);
 
 const dateQuery = {
     citys: {
-        0: "antartica",
-        1: "london",
-        2: "paris",
-        3: "new york",
-        4: "berlin",
-        5: "rome",
-        6: "venice"
+        0: "australia",
+        1: "uk",
+        2: "france",
+        3: "us",
+        4: "japan",
+        5: "canada",
+        6: "italy",
+        7: "ireland",
+        8: "iceland",
+        9: "russia"
     },
     arts: {
         0: "interior",
         1: "nature",
         2: "business",
         3: "minimal",
-        4: "technology",
-        5: "architecture",
-        6: "fashion"
+        4: "architecture",
+        5: "sustainability",
+        6: "textures",
+        7: "technology",
+        8: "history",
+        9: "imac"
     }
 }
 
 const accessCode = "3CVHz8RtTUrydWpPKmbmNGlOBnZ4zxn6k2YvNn-bjPw";
 let query;
 
-if (month % 2 === 0) {
+if (week % 2 === 0) {
     query = dateQuery.citys[random];
 } else {
     query = dateQuery.arts[random];
@@ -40,22 +54,21 @@ function bringPhoto() {
     fetch(`https://api.unsplash.com/search/photos?query=${query}&per_page=30&page=${random}&client_id=${accessCode}`).then(function(response) {
         return response.json();
     }).then(function(json) {
-        console.log(json);
         random = Math.floor(Math.random() * 30);
+        console.log(json);
         const imgURL = json.results[random].urls.full;
-        const imgAlt = json.results[random].alt_description;
         const imgOwner = json.results[random].user.name;
-        setBackground(imgURL,imgAlt,imgOwner);
+        const imgDesc = `Taken by ${imgOwner}. From Unsplash.`;
+        setBackground(imgURL,imgDesc);
     });
 }
 
-function setBackground(src,alt,owner) {
+function setBackground(src,desc) {
     const image = new Image();
     const description = document.createElement("span");
     description.id = "imgDsc";
-    description.innerText = `Taken by ${owner}. From Unsplash.`;
+    description.innerText = desc;
     image.src = src;
-    image.alt = `${alt}, by ${owner}. Provided by Unsplash.`;
     image.id = "background";
     body.appendChild(image);
     body.appendChild(description);
@@ -67,7 +80,7 @@ function init() {
     } else if (bgCustom.includes("#")) {
         body.style.background = bgCustom;
     } else {
-        setBackground(bgCustom,"-","User");
+        setBackground(bgCustom,`${bgCustom}\nCustom background set by User.`);
     }
 }
 
