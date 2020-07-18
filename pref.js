@@ -5,17 +5,17 @@ const swtBg = document.querySelectorAll(".swtBg");
 const prefDel = document.querySelector("#delPref");
 const cstmBgClr = document.querySelectorAll("#option button")[0];
 const cstmBgImg = document.querySelectorAll("#option button")[1];
-const clrInput = document.querySelector("#colorForm");
-const fleInput = document.querySelector("#fileLabel");
+const clrForm = document.querySelector("#bgClrForm");
+const fleForm = document.querySelector("#bgImgForm");
 let textViewable = true;
 let plcViewable = true;
-let bgClr = null;
+let bgCstm = null;
 
 function savePref() {
     localStorage.setItem("theme", themeRange.value);
     localStorage.setItem("textViewable", JSON.stringify(textViewable));
     localStorage.setItem("plcViewable", JSON.stringify(plcViewable));
-    localStorage.setItem("bgClr", JSON.stringify(bgClr));
+    localStorage.setItem("bgCstm", JSON.stringify(bgCstm));
 }
 
 function clearPref() {
@@ -25,17 +25,19 @@ function clearPref() {
         localStorage.removeItem("textViewable");
         localStorage.removeItem("plcViewable");
         localStorage.removeItem("bookmark");
-        localStorage.removeItem("bgClr");
+        localStorage.removeItem("bgCstm");
     }
 }
 
-function saveBgClr(event) {
+function saveBgCstm(event) {
     event.preventDefault();
-    const input = clrInput.querySelector("input");
-    bgClr = input.value;
-    if (bgClr === "") {
-        bgClr = null
-        alert("Cleared Custom Background Preferences.");
+    const input = event.target.querySelector("input");
+    bgCstm = input.value;
+    if (bgCstm === "") {
+        bgCstm = null
+        alert("Cleared Custom Background Settings.");
+    } else {
+        alert("Saved Custom Background Settings.");
     }
     input.value = "";
     savePref();
@@ -84,11 +86,11 @@ function handleSwtClick(event) {
 function shwCst(event) {
     const opt = event.target;
     if (opt.innerText === "Set Color") {
-        fleInput.style.display = "none";
-        clrInput.style.display = "block";
+        fleForm.style.display = "none";
+        clrForm.style.display = "block";
     } else {
-        clrInput.style.display = "none";
-        fleInput.style.display = "block";
+        clrForm.style.display = "none";
+        fleForm.style.display = "block";
     }
 }
 
@@ -96,7 +98,7 @@ function loadPref() {
     const theme = localStorage.getItem("theme");
     const JSON_textViewable = JSON.parse(localStorage.getItem("textViewable"));
     const JSON_plcViewable = JSON.parse(localStorage.getItem("plcViewable"));
-    const JSON_bgClr = JSON.parse(localStorage.getItem("bgClr"));
+    const JSON_bgCstm = JSON.parse(localStorage.getItem("bgCstm"));
     if (theme !== null) {
         themeRange.value = theme;
         if (theme === "1") {
@@ -111,10 +113,10 @@ function loadPref() {
             themeText.innerText = "Theme: Glass";
         }
     }
-    if (JSON_textViewable !== null || JSON_plcViewable !== null || JSON_bgClr !== null) {
+    if (JSON_textViewable !== null || JSON_plcViewable !== null || JSON_bgCstm !== null) {
         textViewable = JSON_textViewable;
         plcViewable = JSON_plcViewable;
-        bgClr = JSON_bgClr;
+        bgCstm = JSON_bgCstm;
 
         if (JSON_textViewable === false) {
             const swt = document.querySelector("#txtTrb.swtBg");
@@ -160,7 +162,8 @@ function init() {
     prefDel.addEventListener("click", clearPref);
     cstmBgClr.addEventListener("click", shwCst);
     cstmBgImg.addEventListener("click", shwCst);
-    clrInput.addEventListener("submit", saveBgClr);
+    clrForm.addEventListener("submit", saveBgCstm);
+    fleForm.addEventListener("submit", saveBgCstm);
 }
 
 init();

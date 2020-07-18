@@ -1,7 +1,7 @@
 const body = document.querySelector("body");
 const date = new Date();
 const month = date.getMonth();
-const bgColor = JSON.parse(localStorage.getItem("bgClr"));
+const bgCustom = JSON.parse(localStorage.getItem("bgCstm"));
 let random = Math.floor(Math.random() * 7);
 
 const dateQuery = {
@@ -18,7 +18,7 @@ const dateQuery = {
         0: "interior",
         1: "nature",
         2: "business",
-        3: "animal",
+        3: "minimal",
         4: "technology",
         5: "architecture",
         6: "fashion"
@@ -37,18 +37,17 @@ if (month % 2 === 0) {
 random = Math.floor(Math.random() * 10);
 
 function bringPhoto() {
-    fetch(`https://api.unsplash.com/search/photos?query=${query}&client_id=${accessCode}`).then(function(response) {
+    fetch(`https://api.unsplash.com/search/photos?query=${query}&per_page=30&client_id=${accessCode}`).then(function(response) {
         return response.json();
     }).then(function(json) {
         const imgURL = json.results[random].urls.full;
         const imgAlt = json.results[random].alt_description;
         const imgOwner = json.results[random].user.name;
-        const imgHeight = json.results[random].height;
-        setBackground(imgURL,imgAlt,imgOwner,imgHeight);
+        setBackground(imgURL,imgAlt,imgOwner);
     });
 }
 
-function setBackground(src,alt,owner,height) {
+function setBackground(src,alt,owner) {
     const image = new Image();
     const description = document.createElement("span");
     description.id = "imgDsc";
@@ -61,10 +60,12 @@ function setBackground(src,alt,owner,height) {
 }
 
 function init() {
-    if (bgColor === null) {
+    if (bgCustom === null) {
         bringPhoto();
+    } else if (bgCustom.includes("#")) {
+        body.style.background = bgCustom;
     } else {
-        body.style.background = bgColor;
+        setBackground(bgCustom,"-","User");
     }
 }
 

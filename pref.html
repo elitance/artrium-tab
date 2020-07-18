@@ -25,15 +25,13 @@
                         <button type="button">Set Color</button>
                         <button type="button">Set Image</button>
                     </div>
-                    <form id="colorForm">
-                        <input type="text" placeholder="Color Unit: Hex" id="color" pattern="#[a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9]">
-                        <div style="font-size: 13px; margin-top: 10px;">Submit nothing to clear this preference.</div>
+                    <form id="bgClrForm">
+                        <input type="text" placeholder="Color Unit: Hex" pattern="#[a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9]">
                     </form>
-                    <label for="file" id="fileLabel">
-                        <!-- Upload Image -->
-                        Available on Version N2.5
-                    </label>
-                    <input type="file" id="file" style="display: none;">
+                    <form id="bgImgForm">
+                        <input type="url" placeholder="Input Image URL">
+                    </form>
+                    <div style="font-size: 13px; margin-top: 10px;">Submit blank to clear this setting.</div>
                 </div>
                 <div>
                     <h3>Delete All User Preferences</h3>

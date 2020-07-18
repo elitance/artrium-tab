@@ -189,7 +189,7 @@ a:hover {
     border-bottom-left-radius: 0;
 }
 
-#color {
+#bgClrForm input, #bgImgForm input {
     border: 1.5px solid #b2bec3;
     background: #f5f6fa;
     border-radius: 10px;
@@ -201,19 +201,11 @@ a:hover {
     margin-top: 20px;
 }
 
-#color:focus {
+#bgClrForm input:focus, #bgImgForm input:focus {
     box-shadow: 0px 0px 5px #0366d6;
     border: 1.5px solid #0366d6;
 }
 
-#fileLabel {
+#bgImgForm {
     display: none;
-    margin-top: 20px;
-    cursor: pointer;
-    filter: opacity(.3);
-    pointer-events: none;
-}
-
-#fileLabel:hover {
-    text-decoration: underline;
 }
