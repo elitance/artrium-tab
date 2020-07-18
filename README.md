@@ -14,7 +14,7 @@ And this, is New version of Artrium. Once Artrium was seperated into two: Artriu
 - Can Delete User Data
 - Bookmark Limits
 - Custom Background Color
-- <s>Custom Background Image</s> (Available on Version N2.5)
+- Custom Background Image
 
 ## Image Copyrights
 All of the images are from [Unsplash API](https://api.unsplash.com).
