@@ -19,6 +19,7 @@ function clearPref() {
     const answer = confirm("Would you really DELETE ALL USER PREFERENCES?\nThis act deletes all preferences.");
     if (answer === true) {
         localStorage.removeItem(PREF_LS);
+        localStorage.removeItem("bookmark");
     }
 }
 
@@ -43,41 +44,32 @@ function toggle(element1, element2) {
 
 function toggleSwitch(event) {
     const swt = event.target;
-    function setTxt(element) {
-        if (element.id === "txtTrb") {
+    function set(element,id,index) {
+        if (element.id === id) {
             if (!element.className.includes(" ")) {
-                pref.txtVisible = true;
+                pref[index] = true;
             } else {
-                pref.txtVisible = false;
-            }
-        }
-    }
-    function setPlc(element) {
-        if (element.id === "plcTrb") {
-            if (!element.className.includes(" ")) {
-                pref.plcVisible = true;
-            } else {
-                pref.plcVisible = false;
+                pref[index] = false;
             }
         }
     }
     if (swt.className === "swtBg" || swt.className === "swtBg swtBgOn") {
         const swtTgg = swt.querySelector(".swtTg");
         toggle(swt,swtTgg);
-        setTxt(swt);
-        setPlc(swt,"plcTrb",pref.plcVisible);
+        set(swt,"txtTrb","txtVisible");
+        set(swt,"plcTrb","plcVisible");
     } else {
         const swtBg = swt.parentElement;
         toggle(swtBg,swt);
-        setTxt(swtBg,"txtTrb",pref.txtVisible);
-        setPlc(swtBg,"plcTrb",pref.plcVisible);
+        set(swtBg,"txtTrb","txtVisible");
+        set(swtBg,"plcTrb","plcVisible");
     }
     savePref();
 }
 
 function switchCstm(event) {
     const option = event.target;
-    if (option.innerText = "Set Color") {
+    if (option.innerText === "Set Color") {
         imageForm.style.display = "none";
         colorForm.style.display = "block";
     } else {
