@@ -20,9 +20,9 @@ function handleSearch(event) {
 }
 
 function loadTextAvailable() {
-    if (JSON.parse(localStorage.getItem("pref")) !== null) {
-        const textViewable = JSON.parse(localStorage.getItem("pref")).txtVisible;
-        const plcViewable = JSON.parse(localStorage.getItem("pref")).plcVisible;
+    if (PREF_JSON !== null) {
+        const textViewable = PREF_JSON.txtVisible;
+        const plcViewable = PREF_JSON.plcVisible;
         if (textViewable === false) {
             searchInput.style.color = "#353b48";
         } if (plcViewable === false) {

@@ -11,8 +11,8 @@ function changeTheme(themeNo) {
 }
 
 function loadTheme() {
-    if (JSON.parse(localStorage.getItem("pref")) !== null) {
-        const loadedTheme = JSON.parse(localStorage.getItem("pref")).theme;
+    if (PREF_JSON !== null) {
+        const loadedTheme = PREF_JSON.theme;
         if (loadedTheme !== null) {
             changeTheme(loadedTheme);
         }

@@ -17,11 +17,11 @@ const dateQuery = {
         1: "uk",
         2: "france",
         3: "us",
-        4: "japan",
-        5: "canada",
-        6: "italy",
-        7: "ireland",
-        8: "russia"
+        4: "canada",
+        5: "italy",
+        6: "ireland",
+        7: "russia",
+        8: "swiss"
     },
     arts: {
         0: "interior",
@@ -32,7 +32,7 @@ const dateQuery = {
         5: "sustainability",
         6: "textures",
         7: "technology",
-        8: "imac"
+        8: "music"
     }
 }
 
@@ -71,8 +71,8 @@ function setBackground(src,desc) {
 }
 
 function init() {
-    if (JSON.parse(localStorage.getItem("pref")) !== null) {
-        const bgCustom = JSON.parse(localStorage.getItem("pref")).bgCstm;    
+    if (PREF_JSON !== null) {
+        const bgCustom = PREF_JSON.bgCstm;
         if (bgCustom === null) {
             bringPhoto();
         } else if (bgCustom.includes("#")) {

@@ -1,4 +1,3 @@
-const bdy = document.querySelector("body");
 const bkList = document.querySelector("#bkList");
 const crtBkBtn = document.querySelector("#crtBkBtn");
 const crtBkTab = document.querySelector("#crtBk");
