@@ -26,6 +26,10 @@ Since acrylic theme contains very much acrylic contents (it blurs the background
 
 (Note: Artrium was tested on MS Edge (Chromium). There may be some differences by devices.)
 
+## Privacy
+None of your search data is saved to the server.
+Every settings are saved in local storage. No cookies and trackers are included in Artrium. You can check out this in the source code.
+
 ## Contact
 
 <div align=center>
