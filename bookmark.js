@@ -1,13 +1,3 @@
-const bkList = document.querySelector("#bkList");
-const crtBkBtn = document.querySelector("#crtBkBtn");
-const crtBkTab = document.querySelector("#crtBk");
-const cnlCrtBk = document.querySelector("#cnlCrtBk");
-let bookmarks;
-
-let bkArr = [];
-let crtBkCnl = false;
-let crtBkMnl = false;
-
 function saveBookmark() {
     localStorage.setItem("bookmark", JSON.stringify(bkArr));
 }
@@ -84,9 +74,12 @@ function loadBookmark() {
         })
     }
 }
-    
+
 function init() {
     loadBookmark();
+    const crtBkBtn = document.querySelector("#crtBkBtn");
+    const cnlCrtBk = document.querySelector("#cnlCrtBk");
+    let bookmarks;
     crtBkBtn.addEventListener("click",showBkTab);
     cnlCrtBk.addEventListener("click",hideBkTab);
     crtBkTab.addEventListener("submit", prepBkCrt);
@@ -108,5 +101,5 @@ function init() {
         }
     }, 100);
 }
-    
+
 init();

@@ -1,6 +1,3 @@
-const searchForm = document.querySelector("#search");
-const searchInput = searchForm.querySelector("input");
-
 function handleSearch(event) {
     event.preventDefault();
     var query = searchInput.value;

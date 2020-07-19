@@ -1,5 +1,3 @@
-const cssLink = document.querySelector("link");
-
 function changeTheme(themeNo) {
     if (themeNo === "1") {
         cssLink.href = "acrylicStyle.css";
