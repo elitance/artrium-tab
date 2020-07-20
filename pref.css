@@ -209,3 +209,42 @@ a:hover {
 #imageForm {
     display: none;
 }
+
+#poper {
+    z-index: 3;
+    position: fixed;
+    padding: 30px;
+    background: #f5f6fa;
+    min-width: 220px;
+    min-height: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    border: #f5f6fa;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.2);
+    transition: all .4s;
+    transform: translateY(-300px);
+}
+
+#poper h4 {
+    margin-top: 0px;
+}
+
+#poper div {
+    margin-top: 50px;
+}
+
+#poper button {
+    width: 70px;
+    height: 30px;
+    background: #0366d6;
+    border: none;
+    border-radius: 5px;
+    color: #f5f6fa;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+#poper button:hover {
+    filter: opacity(.9);
+}

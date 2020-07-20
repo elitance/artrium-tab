@@ -11,6 +11,33 @@ let pref = {
     bgCstm: null
 }
 
+function poper(headerTxt, descTxt, option) {
+	return new Promise((resolve, reject) => {
+		const poper = document.querySelector("#poper");
+		const header = poper.querySelector("h4");
+        const buttonDiv = poper.querySelector("div");
+		const desc = poper.querySelector("span");
+		header.innerText = headerTxt;
+		desc.innerText = descTxt;
+
+        const yBtn = buttonDiv.querySelectorAll("button")[0];
+        yBtn.addEventListener("click", (event) => {resolve(true); poper.style.transform = "none";});
+        
+        const nBtn = buttonDiv.querySelectorAll("button")[1];
+        nBtn.addEventListener("click", (event) => {resolve(false); poper.style.transform = "translateY(-300px)";});
+
+        if (option === false) {
+            nBtn.style.display = "none";
+        } else {
+            nBtn.style.display = "block";
+        }
+
+        poper.style.transform = "none";
+        setTimeout(() => {poper.style.transform = "translateY(-300px)"; reject();},10000);
+    });
+}
+		
+
 function savePref() {
     localStorage.setItem(PREF_LS, JSON.stringify(pref));
 }
@@ -98,6 +125,15 @@ function setThemeRange(theme) {
     }
 }
 
+function getResponse(event) {
+    const response = event.target;
+    if (response.innerText === "Yes") {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function loadPref() {
     const PREF_JSON = JSON.parse(localStorage.getItem(PREF_LS));
     if (PREF_JSON !== null) {
@@ -128,7 +164,7 @@ function init() {
     prefDel.addEventListener("click", clearPref);
     cstmBg.forEach((option) => {option.addEventListener("click",switchCstm);});
     colorForm.addEventListener("submit",handleBgCstm);
-    imageForm.addEventListener("submit",handleBgCstm)
+    imageForm.addEventListener("submit",handleBgCstm);
 }
 
 init();
