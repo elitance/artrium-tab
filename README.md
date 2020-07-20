@@ -6,13 +6,13 @@ Just enjoy without any logins, cookies.
 You can use this site better with this [extension](https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna?hl=en).
 This extension lets you to redirect new tabs, which means it can make you able to quickly access to google, and your bookmarks in Artrium.
 
-And this, is New version of Artrium. Once Artrium was seperated into two: Artrium and Artrium Beta, but I decided to abandon old Artrium and raise Artrium Beta (which is Artrium New currently). New version includes design improvements, improvement on code and etc. Unfortunatly, as the site domain and repo moves all the preferences and bookmarks' data will be lost.
+And this, is New version of Artrium. Once Artrium was seperated into two: Artrium and Artrium Beta, but I decided to abandon old Artrium and raise Artrium Beta (which is Artrium New currently). New version includes design improvements, improvement on code and etc. Unfortunatly, as the site domain and repo moves, all the preferences and bookmarks' data will be lost.
 
 ## New Features - Version 0.9
 - Design Improvements
 - Cleaner Source Code
 - Can Delete User Data
-- Bookmark Limits
+- Bookmark Limits (20)
 - Custom Background Color
 - Custom Background Image
 - Built-in Alert/Confirm Function
