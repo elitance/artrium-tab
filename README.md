@@ -8,13 +8,14 @@ This extension lets you to redirect new tabs, which means it can make you able t
 
 And this, is New version of Artrium. Once Artrium was seperated into two: Artrium and Artrium Beta, but I decided to abandon old Artrium and raise Artrium Beta (which is Artrium New currently). New version includes design improvements, improvement on code and etc. Unfortunatly, as the site domain and repo moves all the preferences and bookmarks' data will be lost.
 
-## New Features - Version 0.85
+## New Features - Version 0.9
 - Design Improvements
 - Cleaner Source Code
 - Can Delete User Data
 - Bookmark Limits
 - Custom Background Color
 - Custom Background Image
+- Built-in Alert/Confirm Function
 
 ## Image Copyrights
 All of the images are from [Unsplash API](https://api.unsplash.com).
