@@ -12,7 +12,7 @@ And this, is New version of Artrium. Once Artrium was seperated into two: Artriu
 - Design Improvements
 - Cleaner Source Code
 - Can Delete User Data
-- Bookmark Limits (20)
+- Bookmark Limits (10)
 - Custom Background Color
 - Custom Background Image
 - Built-in Alert/Confirm Function
