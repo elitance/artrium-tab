@@ -246,14 +246,16 @@ a:hover {
     margin-left: 5px;
     width: 70px;
     height: 30px;
-    background: #0366d6;
-    border: none;
+    background: #f6f9fc;
+    color: black;
+    border: 1.5px solid #b2bec3;
     border-radius: 5px;
-    color: #f5f6fa;
     cursor: pointer;
     transition: all .2s;
 }
 
 #poper button:hover {
-    filter: opacity(.9);
+    background: #0366d6;
+    color: white;
+    border: #0366d6;
 }
