@@ -110,7 +110,6 @@ body {
     border: 1.5px solid #b2bec3;
     width: 37vw;
     height: 430px;
-    transition: all .8s;
     color: black;
     transform: translateY(130vh);
     filter: opacity(1);

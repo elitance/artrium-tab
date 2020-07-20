@@ -80,6 +80,7 @@ function init() {
     const crtBkBtn = document.querySelector("#crtBkBtn");
     const cnlCrtBk = document.querySelector("#cnlCrtBk");
     let bookmarks;
+    setTimeout(() => {crtBkTab.style.transition = "all .8s";},2000);
     crtBkBtn.addEventListener("click",showBkTab);
     cnlCrtBk.addEventListener("click",hideBkTab);
     crtBkTab.addEventListener("submit", prepBkCrt);
