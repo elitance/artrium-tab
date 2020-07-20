@@ -226,15 +226,24 @@ a:hover {
     transform: translateY(-300px);
 }
 
-#poper h4 {
-    margin-top: 0px;
+#poper h2 {
+    margin: 0px !important;
+    border: none;
+    padding: none;
+    width: initial;
+    font-weight: 500;
+    font-size: 19px;
 }
 
 #poper div {
-    margin-top: 50px;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
 }
 
 #poper button {
+    margin-left: 5px;
     width: 70px;
     height: 30px;
     background: #0366d6;

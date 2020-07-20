@@ -13,18 +13,18 @@ let pref = {
 
 function poper(headerTxt, descTxt, option) {
 	return new Promise((resolve, reject) => {
-		const poper = document.querySelector("#poper");
-		const header = poper.querySelector("h4");
+        const poper = document.querySelector("#poper");
+		const header = poper.querySelector("h2");
         const buttonDiv = poper.querySelector("div");
 		const desc = poper.querySelector("span");
 		header.innerText = headerTxt;
-		desc.innerText = descTxt;
+		desc.innerHTML = descTxt;
 
         const yBtn = buttonDiv.querySelectorAll("button")[0];
-        yBtn.addEventListener("click", (event) => {resolve(true); poper.style.transform = "none";});
+        yBtn.addEventListener("click", (event) => {poper.style.transform = "translateY(-300px)"; resolve(true);});
         
         const nBtn = buttonDiv.querySelectorAll("button")[1];
-        nBtn.addEventListener("click", (event) => {resolve(false); poper.style.transform = "translateY(-300px)";});
+        nBtn.addEventListener("click", (event) => {poper.style.transform = "translateY(-300px)"; resolve(false);});
 
         if (option === false) {
             nBtn.style.display = "none";
@@ -33,21 +33,22 @@ function poper(headerTxt, descTxt, option) {
         }
 
         poper.style.transform = "none";
-        setTimeout(() => {poper.style.transform = "translateY(-300px)"; reject();},10000);
+        setTimeout(() => {poper.style.transform = "translateY(-300px)"; resolve(false);},10000);
     });
 }
-		
 
 function savePref() {
     localStorage.setItem(PREF_LS, JSON.stringify(pref));
 }
 
 function clearPref() {
-    const answer = confirm("Would you really DELETE ALL USER PREFERENCES?\nThis act deletes all preferences.");
-    if (answer === true) {
-        localStorage.removeItem(PREF_LS);
-        localStorage.removeItem("bookmark");
-    }
+    poper("Delete User Preference","Would you really delete all user preferences?<br>This act cannot be canceled.",true).then((response) => {
+        if (response === true) {
+            localStorage.removeItem(PREF_LS);
+            localStorage.removeItem("bookmark");
+            location.reload();
+        }
+    });
 }
 
 function handleBgCstm(event) {
@@ -56,9 +57,9 @@ function handleBgCstm(event) {
     pref.bgCstm = input.value;
     if (pref.bgCstm === "") {
         pref.bgCstm = null;
-        alert("Cleared custom background settings.");
+        poper("Custom Background","Cleared custom background settings.",false);
     } else {
-        alert("Saved custom background settings.");
+        poper("Custom Background","Saved custom background settings.",false);
     }
     input.value = "";
     savePref();
