@@ -2,17 +2,35 @@ function saveBookmark() {
     localStorage.setItem("bookmark", JSON.stringify(bkArr));
 }
 
+function poper(headerTxt, descTxt, option) {
+    return new Promise((resolve, reject) => {
+        const poper = document.querySelector("#poper");
+        const header = poper.querySelector("h2");
+        const buttonDiv = poper.querySelector("div");
+        const desc = poper.querySelector("span");
+        header.innerText = headerTxt;
+        desc.innerHTML = descTxt;
+
+        const yBtn = buttonDiv.querySelectorAll("button")[0];
+        yBtn.addEventListener("click", (event) => {poper.style.transform = "translateY(-300px)"; resolve(true);});
+        
+        const nBtn = buttonDiv.querySelectorAll("button")[1];
+        nBtn.addEventListener("click", (event) => {poper.style.transform = "translateY(-300px)"; resolve(false);});
+
+        if (option === false) {
+            nBtn.style.display = "none";
+        } else {
+            nBtn.style.display = "block";
+        }
+
+        poper.style.transform = "none";
+        setTimeout(() => {poper.style.transform = "translateY(-300px)"; resolve(false);},10000);
+    });
+}
+
 function addBookmark(url,name) {
     const link = document.createElement("a");
     const id = bkArr.length + 1;
-    if (name.length >= 17 && crtBkMnl === true) {
-        const answer = confirm("If the name of a bookmark is longer than 17 characters, you might not be able to see the name of the bookmark well.\nWould you continue?");
-        if (answer === false) {
-            crtBkCnl = true;
-            hideBkTab();
-            return;
-        }
-    }
     link.href = url;
     link.innerText = name;
     link.classList.add("bookmark");
@@ -54,13 +72,12 @@ function hideBkTab() {
 
 function prepBkCrt() {
     event.preventDefault();
-    crtBkMnl = true;
     crtBkCnl = false;
     const url = crtBkTab.querySelector("#url");
     const name = crtBkTab.querySelector("#name");
     addBookmark(url.value,name.value);
     if (crtBkCnl === false) {
-        alert(`Bookmark successfully created!`);
+        poper("Bookmark","Bookmark successfully created!",false);
     }
     url.value = "";
     name.value = "";

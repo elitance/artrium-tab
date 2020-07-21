@@ -11,32 +11,6 @@ let pref = {
     bgCstm: null
 }
 
-function poper(headerTxt, descTxt, option) {
-	return new Promise((resolve, reject) => {
-        const poper = document.querySelector("#poper");
-		const header = poper.querySelector("h2");
-        const buttonDiv = poper.querySelector("div");
-		const desc = poper.querySelector("span");
-		header.innerText = headerTxt;
-		desc.innerHTML = descTxt;
-
-        const yBtn = buttonDiv.querySelectorAll("button")[0];
-        yBtn.addEventListener("click", (event) => {poper.style.transform = "translateY(-300px)"; resolve(true);});
-        
-        const nBtn = buttonDiv.querySelectorAll("button")[1];
-        nBtn.addEventListener("click", (event) => {poper.style.transform = "translateY(-300px)"; resolve(false);});
-
-        if (option === false) {
-            nBtn.style.display = "none";
-        } else {
-            nBtn.style.display = "block";
-        }
-
-        poper.style.transform = "none";
-        setTimeout(() => {poper.style.transform = "translateY(-300px)"; resolve(false);},10000);
-    });
-}
-
 function savePref() {
     localStorage.setItem(PREF_LS, JSON.stringify(pref));
 }
@@ -63,6 +37,32 @@ function handleBgCstm(event) {
     }
     input.value = "";
     savePref();
+}
+
+function poper(headerTxt, descTxt, option) {
+    return new Promise((resolve, reject) => {
+        const poper = document.querySelector("#poper");
+        const header = poper.querySelector("h2");
+        const buttonDiv = poper.querySelector("div");
+        const desc = poper.querySelector("span");
+        header.innerText = headerTxt;
+        desc.innerHTML = descTxt;
+
+        const yBtn = buttonDiv.querySelectorAll("button")[0];
+        yBtn.addEventListener("click", (event) => {poper.style.transform = "translateY(-300px)"; resolve(true);});
+        
+        const nBtn = buttonDiv.querySelectorAll("button")[1];
+        nBtn.addEventListener("click", (event) => {poper.style.transform = "translateY(-300px)"; resolve(false);});
+
+        if (option === false) {
+            nBtn.style.display = "none";
+        } else {
+            nBtn.style.display = "block";
+        }
+
+        poper.style.transform = "none";
+        setTimeout(() => {poper.style.transform = "translateY(-300px)"; resolve(false);},10000);
+    });
 }
 
 function toggle(element1, element2) {
@@ -110,7 +110,7 @@ function setThemeRange(theme) {
     if (theme === "1") {
         themeIndicator.innerText = "Theme: Acrylic";
         const warn = document.createElement("div");
-        warn.innerText = "Acrylic Theme may slow down your PC.";
+        warn.innerText = "Acrylic Theme may slow down your device.";
         warn.style.fontSize = "13px";
         themeIndicator.appendChild(warn);
     } else if (theme === "2") {

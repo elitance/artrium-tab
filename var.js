@@ -49,7 +49,6 @@ const crtBkTab = document.querySelector("#crtBk");
 
 let bkArr = new Array();
 let crtBkCnl = false;
-let crtBkMnl = false;
 
 // Variables of: 'init.js'
 
