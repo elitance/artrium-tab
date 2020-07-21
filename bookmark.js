@@ -70,11 +70,14 @@ function hideBkTab() {
     name.value = "";
 }
 
-function prepBkCrt() {
+function prepBkCrt(event) {
     event.preventDefault();
     crtBkCnl = false;
     const url = crtBkTab.querySelector("#url");
     const name = crtBkTab.querySelector("#name");
+    if (name.value.length >= 17) {
+        poper("Bookmark","length too long",false);
+    }
     addBookmark(url.value,name.value);
     if (crtBkCnl === false) {
         poper("Bookmark","Bookmark successfully created!",false);
@@ -97,7 +100,7 @@ function init() {
     const crtBkBtn = document.querySelector("#crtBkBtn");
     const cnlCrtBk = document.querySelector("#cnlCrtBk");
     let bookmarks;
-    setTimeout(() => {crtBkTab.style.transition = "all .8s";},2000);
+    setTimeout(() => {crtBkTab.style.transition = "all .8s";},1500);
     crtBkBtn.addEventListener("click",showBkTab);
     cnlCrtBk.addEventListener("click",hideBkTab);
     crtBkTab.addEventListener("submit", prepBkCrt);
