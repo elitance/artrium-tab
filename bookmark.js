@@ -72,18 +72,24 @@ function hideBkTab() {
 
 function prepBkCrt(event) {
     event.preventDefault();
-    crtBkCnl = false;
     const url = crtBkTab.querySelector("#url");
     const name = crtBkTab.querySelector("#name");
     if (name.value.length >= 17) {
-        poper("Bookmark","length too long",false);
-    }
-    addBookmark(url.value,name.value);
-    if (crtBkCnl === false) {
+        poper("Bookmark","If length of the name is over 17,<br>visibility of it will not be good.<br>Would you continue?",true).then((response) => {
+            if (response === false) {
+                hideBkTab();
+                return;
+            } else {
+                setTimeout(() => {
+                    addBookmark(url.value,name.value);
+                    poper("Bookmark","Bookmark successfully created!",false);
+                },300);
+            }
+        });
+    } else {
+        addBookmark(url.value,name.value);
         poper("Bookmark","Bookmark successfully created!",false);
     }
-    url.value = "";
-    name.value = "";
 }
 
 function loadBookmark() {

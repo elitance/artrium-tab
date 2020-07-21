@@ -8,7 +8,6 @@ function handleSearch(event) {
         } else if (query.includes("http://")) {
             query = query.replace("http://", "");
         }
-        console.log(query);
         location.href = `http://${query}`;
     } else {
         query = query.replace(/ /g, "%20");
