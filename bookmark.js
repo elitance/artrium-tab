@@ -2,32 +2,6 @@ function saveBookmark() {
     localStorage.setItem("bookmark", JSON.stringify(bkArr));
 }
 
-function poper(headerTxt, descTxt, option) {
-    return new Promise((resolve, reject) => {
-        const poper = document.querySelector("#poper");
-        const header = poper.querySelector("h2");
-        const buttonDiv = poper.querySelector("div");
-        const desc = poper.querySelector("span");
-        header.innerText = headerTxt;
-        desc.innerHTML = descTxt;
-
-        const yBtn = buttonDiv.querySelectorAll("button")[0];
-        yBtn.addEventListener("click", (event) => {poper.style.transform = "translateY(-300px)"; resolve(true);});
-        
-        const nBtn = buttonDiv.querySelectorAll("button")[1];
-        nBtn.addEventListener("click", (event) => {poper.style.transform = "translateY(-300px)"; resolve(false);});
-
-        if (option === false) {
-            nBtn.style.display = "none";
-        } else {
-            nBtn.style.display = "block";
-        }
-
-        poper.style.transform = "none";
-        setTimeout(() => {poper.style.transform = "translateY(-300px)"; resolve(false);},10000);
-    });
-}
-
 function addBookmark(url,name) {
     const link = document.createElement("a");
     const id = bkArr.length + 1;
@@ -75,20 +49,20 @@ function prepBkCrt(event) {
     const url = crtBkTab.querySelector("#url");
     const name = crtBkTab.querySelector("#name");
     if (name.value.length >= 17) {
-        poper("Bookmark","If length of the name is over 17,<br>visibility of it will not be good.<br>Would you continue?",true).then((response) => {
+        alert("Bookmark","If length of the name is over 17,<br>visibility of it will not be good.<br>Would you continue?",true).then((response) => {
             if (response === false) {
                 hideBkTab();
                 return;
             } else {
                 setTimeout(() => {
                     addBookmark(url.value,name.value);
-                    poper("Bookmark","Bookmark successfully created!",false);
+                    alert("Bookmark","Bookmark successfully created!",false);
                 },300);
             }
         });
     } else {
         addBookmark(url.value,name.value);
-        poper("Bookmark","Bookmark successfully created!",false);
+        alert("Bookmark","Bookmark successfully created!",false);
     }
 }
 

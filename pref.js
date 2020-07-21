@@ -16,7 +16,7 @@ function savePref() {
 }
 
 function clearPref() {
-    poper("Delete User Preference","Would you really delete all user preferences?<br>This act cannot be canceled.",true).then((response) => {
+    alert("Delete User Preference","Would you really delete all user preferences?<br>This act cannot be canceled.",true).then((response) => {
         if (response === true) {
             localStorage.removeItem(PREF_LS);
             localStorage.removeItem("bookmark");
@@ -31,38 +31,12 @@ function handleBgCstm(event) {
     pref.bgCstm = input.value;
     if (pref.bgCstm === "") {
         pref.bgCstm = null;
-        poper("Custom Background","Cleared custom background settings.",false);
+        alert("Custom Background","Cleared custom background settings.",false);
     } else {
-        poper("Custom Background","Saved custom background settings.",false);
+        alert("Custom Background","Saved custom background settings.",false);
     }
     input.value = "";
     savePref();
-}
-
-function poper(headerTxt, descTxt, option) {
-    return new Promise((resolve, reject) => {
-        const poper = document.querySelector("#poper");
-        const header = poper.querySelector("h2");
-        const buttonDiv = poper.querySelector("div");
-        const desc = poper.querySelector("span");
-        header.innerText = headerTxt;
-        desc.innerHTML = descTxt;
-
-        const yBtn = buttonDiv.querySelectorAll("button")[0];
-        yBtn.addEventListener("click", (event) => {poper.style.transform = "translateY(-300px)"; resolve(true);});
-        
-        const nBtn = buttonDiv.querySelectorAll("button")[1];
-        nBtn.addEventListener("click", (event) => {poper.style.transform = "translateY(-300px)"; resolve(false);});
-
-        if (option === false) {
-            nBtn.style.display = "none";
-        } else {
-            nBtn.style.display = "block";
-        }
-
-        poper.style.transform = "none";
-        setTimeout(() => {poper.style.transform = "translateY(-300px)"; resolve(false);},10000);
-    });
 }
 
 function toggle(element1, element2) {
