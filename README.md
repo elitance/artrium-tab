@@ -45,4 +45,4 @@ Every settings are saved in local storage. No cookies and trackers are included 
 
 ## Preview
 
-![Preview Image](preview.png)
+![Preview Image](img/preview.png)
