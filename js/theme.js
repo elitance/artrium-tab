@@ -1,10 +1,10 @@
 function changeTheme(themeNo) {
     if (themeNo === "1") {
-        cssLink.href = "acrylicStyle.css";
+        cssLink.href = "css/colors/acrylicStyle.css";
     } else if (themeNo === "2") {
-        cssLink.href = "solidStyle.css";
+        cssLink.href = "css/colors/solidStyle.css";
     } else {
-        cssLink.href = "transparentStyle.css";
+        cssLink.href = "css/colors/transparentStyle.css";
     }
 }
 
